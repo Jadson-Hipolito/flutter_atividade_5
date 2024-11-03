@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
 
   Widget build(BuildContext context) {
 
-    
+    print("no build da classe MyApp");
 
     return MaterialApp(
 
@@ -49,17 +49,9 @@ class MyApp extends StatelessWidget {
 
 
 
-class NewNavBar extends StatelessWidget {
+class NewNavBar extends HookWidget {
 
   NewNavBar();
-
-
-
-  void buttonTapped(int index) {
-
-    print("Tocaram no botão $index");
-
-  }
 
 
 
@@ -67,11 +59,19 @@ class NewNavBar extends StatelessWidget {
 
   Widget build(BuildContext context) {
 
+    print("no build da classe NewNavBar");
+
+    var state = useState(1);
+
     return BottomNavigationBar(
 
-      onTap: buttonTapped, 
+      onTap: (index){
 
-      currentIndex: 1,
+        state.value = index;
+
+      }, 
+
+      currentIndex: state.value,
 
       items: const [
 
@@ -109,7 +109,7 @@ class DataTableWidget extends StatelessWidget {
 
   Widget build(BuildContext context) {
 
-    
+    print("no build da classe DataTableWidget");
 
     var columnNames = ["Nome","Estilo","IBU"],
 
